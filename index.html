@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Himanshi ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff6f91, #ff9671);
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 20vh;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes {
+    background: white;
+    color: #ff4b7d;
+}
+
+.no {
+    background: #ff4b7d;
+    color: white;
+    position: absolute;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh);}
+    100% {transform: translateY(-10vh);}
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="arz.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <h1>Himanshi ❤️</h1>
+    <p>
+        You are my peace, my happiness,<br>
+        and my favorite person in this world.<br><br>
+        — Suchit 💕
+    </p>
+
+    <h2>Will you stay forever with me? 💖</h2>
+    <button class="yes" onclick="stayYes()">YES ❤️</button>
+    <button class="no" id="stayNo">NO 😜</button>
+
+    <h2 style="margin-top:40px;">Will you be my Valentine? 🌹</h2>
+    <button class="yes" onclick="valYes()">YES 💘</button>
+    <button class="no" id="valNo">NO 😆</button>
+</div>
+
+<script>
+function stayYes() {
+    alert("Yayyy ❤️ Himanshi & Suchit forever 💕");
+}
+
+function valYes() {
+    alert("Best Valentine Ever ❤️🌹 - Suchit");
+}
+
+function moveButton(button) {
+    button.style.left = Math.random() * 80 + "vw";
+    button.style.top = Math.random() * 80 + "vh";
+}
+
+const stayNo = document.getElementById("stayNo");
+const valNo = document.getElementById("valNo");
+
+stayNo.addEventListener("mouseover", function() {
+    moveButton(stayNo);
+});
+
+valNo.addEventListener("mouseover", function() {
+    moveButton(valNo);
+});
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
