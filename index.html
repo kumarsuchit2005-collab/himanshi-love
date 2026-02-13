@@ -5,55 +5,74 @@
 <title>For Himanshi ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff6f91, #ff9671);
-    text-align: center;
-    color: white;
-    overflow: hidden;
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:black;
+  color:white;
+  overflow:hidden;
+  text-align:center;
 }
 
-.container {
-    margin-top: 20vh;
-    padding: 20px;
+.page{
+  display:none;
+  height:100vh;
+  padding:30px;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
 }
 
-h1 {
-    font-size: 28px;
+.active{
+  display:flex;
 }
 
-button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+h1{
+  font-size:28px;
 }
 
-.yes {
-    background: white;
-    color: #ff4b7d;
+p{
+  font-size:18px;
+  margin-top:15px;
 }
 
-.no {
-    background: #ff4b7d;
-    color: white;
-    position: absolute;
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  font-size:18px;
+  margin:15px;
+  cursor:pointer;
 }
 
-@keyframes float {
-    0% {transform: translateY(100vh);}
-    100% {transform: translateY(-10vh);}
+.yes{
+  background:white;
+  color:black;
 }
 
-.heart {
-    position: absolute;
-    font-size: 20px;
-    animation: float 6s linear infinite;
+.no{
+  background:red;
+  color:white;
+  position:absolute;
+}
+
+.final-text{
+  font-size:30px;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+  from{ text-shadow:0 0 10px pink; }
+  to{ text-shadow:0 0 20px red; }
+}
+
+.fade{
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
 }
 </style>
 </head>
@@ -61,64 +80,58 @@ button {
 <body>
 
 <audio autoplay loop>
-    <source src="arz.mp3" type="audio/mpeg">
+  <source src="arz.mp3" type="audio/mpeg">
 </audio>
 
-<div class="container">
-    <h1>Himanshi ❤️</h1>
-    <p>
-        You are my peace, my happiness,<br>
-        and my favorite person in this world.<br><br>
-        — Suchit 💕
-    </p>
+<!-- Page 1 -->
+<div class="page active fade" id="page1">
+  <h1>Himanshi ❤️</h1>
+  <p>There is something I want to ask you...</p>
+  <button onclick="nextPage(2)">Next ➜</button>
+</div>
 
-    <h2>Will you stay forever with me? 💖</h2>
-    <button class="yes" onclick="stayYes()">YES ❤️</button>
-    <button class="no" id="stayNo">NO 😜</button>
+<!-- Page 2 -->
+<div class="page fade" id="page2">
+  <h1>Since you came into my life...</h1>
+  <p>Everything feels more beautiful, peaceful and special 💖<br><br>
+  – Suchit</p>
+  <button onclick="nextPage(3)">Next ➜</button>
+</div>
 
-    <h2 style="margin-top:40px;">Will you be my Valentine? 🌹</h2>
-    <button class="yes" onclick="valYes()">YES 💘</button>
-    <button class="no" id="valNo">NO 😆</button>
+<!-- Page 3 -->
+<div class="page fade" id="page3">
+  <h1>Will you stay forever with me? 💍</h1>
+  <button class="yes" onclick="showFinal()">YES ❤️</button>
+  <button class="no" id="noBtn">NO 😜</button>
+</div>
+
+<!-- Final Page -->
+<div class="page" id="final">
+  <div class="final-text">
+    💖 Himanshi & Suchit Forever 💖<br><br>
+    I Love You So Much ❤️
+  </div>
 </div>
 
 <script>
-function stayYes() {
-    alert("Yayyy ❤️ Himanshi & Suchit forever 💕");
+
+function nextPage(num){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("page"+num).classList.add("active");
 }
 
-function valYes() {
-    alert("Best Valentine Ever ❤️🌹 - Suchit");
+function showFinal(){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("final").classList.add("active");
 }
 
-function moveButton(button) {
-    button.style.left = Math.random() * 80 + "vw";
-    button.style.top = Math.random() * 80 + "vh";
-}
+const noBtn=document.getElementById("noBtn");
 
-const stayNo = document.getElementById("stayNo");
-const valNo = document.getElementById("valNo");
-
-stayNo.addEventListener("mouseover", function() {
-    moveButton(stayNo);
+noBtn.addEventListener("mouseover",function(){
+  noBtn.style.left=Math.random()*80+"vw";
+  noBtn.style.top=Math.random()*80+"vh";
 });
 
-valNo.addEventListener("mouseover", function() {
-    moveButton(valNo);
-});
-
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}
-
-setInterval(createHeart, 400);
 </script>
 
 </body>
