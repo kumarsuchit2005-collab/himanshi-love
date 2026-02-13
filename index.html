@@ -33,10 +33,9 @@
             z-index: 10;
         }
 
-        /* GIF Styling */
         .gif-img {
             width: 100%;
-            max-width: 250px;
+            max-width: 200px;
             height: auto;
             border-radius: 15px;
             margin-bottom: 20px;
@@ -50,6 +49,8 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            position: relative;
+            height: 60px;
         }
 
         button {
@@ -59,17 +60,16 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.2s;
         }
 
         #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4); }
 
-        /* The Teleporting No Button */
         #noBtn { 
             background-color: #f0f0f0; 
             color: #d63384; 
             position: absolute; 
-            transition: all 0.1s ease;
+            left: 150px; /* Initial position */
+            transition: all 0.1s ease-out;
             z-index: 1000;
         }
 
@@ -77,14 +77,7 @@
         .fade-in { animation: fadeIn 0.8s ease-in; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
-        .reasons {
-            text-align: left;
-            display: inline-block;
-            color: #d63384;
-            margin: 15px 0;
-            font-weight: bold;
-        }
-        .reasons div { margin-bottom: 8px; }
+        .reasons { text-align: left; display: inline-block; color: #d63384; margin: 15px 0; font-weight: bold; }
     </style>
 </head>
 <body onclick="playMusic()">
@@ -94,65 +87,81 @@
     </audio>
 
     <div id="screen1" class="container">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW1mY2tqbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v467vEPr3X08V11452/giphy.gif" class="gif-img" alt="Cute Bear">
+        <img src="https://media.giphy.com/media/c70XkG0O3v00DxyS8v/giphy.gif" class="gif-img" alt="Bears">
         <h1>Himanshi, will you be my Valentine?</h1>
         <p>Suchit is waiting for your answer... 😉</p>
         <div class="btn-container">
             <button id="yesBtn" onclick="nextScreen(2)">YES! 💖</button>
-            <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">NO 🤨</button>
+            <button id="noBtn" id="noBtn">NO 🤨</button>
         </div>
     </div>
 
     <div id="screen2" class="container hidden fade-in">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmN6eG1qbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/T86lxKucLz3R8FmKqS/giphy.gif" class="gif-img" alt="Happy Cat">
+        <img src="https://media.giphy.com/media/T86lxKucLz3R8FmKqS/giphy.gif" class="gif-img">
         <h1>I knew you'd say YES! 😍</h1>
-        <p>Ever since our proposal on <b>1st February</b>, my life has been a dream. You are my everything, Himanshi.</p>
+        <p>Ever since our proposal on <b>1st February</b>, my life has been a dream.</p>
         <button id="yesBtn" onclick="nextScreen(3)">Why I love you?</button>
     </div>
 
     <div id="screen3" class="container hidden fade-in">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmN6eG1qbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L4lvBps67d02l87K56/giphy.gif" class="gif-img" alt="Love">
+        <img src="https://media.giphy.com/media/L4lvBps67d02l87K56/giphy.gif" class="gif-img">
         <h1>For My Himanshi 💕</h1>
         <div class="reasons">
             <div>✨ Your beautiful smile</div>
             <div>🌸 Your kindness and care</div>
             <div>👩‍❤️‍👨 Our magical 1st Feb</div>
             <div>🏡 You're my safe place</div>
-            <div>🪄 You make life magical</div>
-        </div>
-        <br>
+        </div><br>
         <button id="yesBtn" onclick="nextScreen(4)">Final Surprise 🎁</button>
     </div>
 
     <div id="screen4" class="container hidden fade-in">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmN6eG1qbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/MDJ9iMTCG7ItmwTYW2/giphy.gif" class="gif-img" alt="Hug">
+        <img src="https://media.giphy.com/media/MDJ9iMTCG7ItmwTYW2/giphy.gif" class="gif-img">
         <h1>Happy Valentine's Day! 💐</h1>
-        <p>Himanshi, you're my today, tomorrow, and always.</p>
-        <div style="font-size: 80px; margin: 10px 0;">💖</div>
-        <p><b>I Love You Forever!</b></p>
+        <div style="font-size: 80px;">💖</div>
+        <p><b>I Love You Forever, Himanshi!</b></p>
         <p>- Your Suchit</p>
     </div>
 
     <script>
         function playMusic() {
             var audio = document.getElementById("valentineMusic");
-            audio.play().catch(function(error) { });
+            audio.play().catch(function(e) {});
         }
 
-        function nextScreen(screenNum) {
+        function nextScreen(num) {
             playMusic();
             document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
-            document.getElementById('screen' + screenNum).classList.remove('hidden');
-            document.getElementById('noBtn').style.display = 'none';
+            document.getElementById('screen' + num).classList.remove('hidden');
+            if(num > 1) document.getElementById('noBtn').style.display = 'none';
         }
 
-        function moveNoButton() {
-            const noBtn = document.getElementById('noBtn');
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            noBtn.style.left = x + 'px';
-            noBtn.style.top = y + 'px';
-        }
+        // NO BUTTON RUNNING AWAY LOGIC
+        const noBtn = document.getElementById('noBtn');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            const buttonRect = noBtn.getBoundingClientRect();
+            
+            // Calculate distance between mouse and button center
+            const dist = Math.hypot(x - (buttonRect.left + buttonRect.width/2), y - (buttonRect.top + buttonRect.height/2));
+
+            // If mouse is within 100 pixels, move the button
+            if (dist < 100) {
+                const newX = Math.random() * (window.innerWidth - buttonRect.width);
+                const newY = Math.random() * (window.innerHeight - buttonRect.height);
+                noBtn.style.left = newX + 'px';
+                noBtn.style.top = newY + 'px';
+            }
+        });
+
+        // For mobile touch
+        noBtn.addEventListener('touchstart', () => {
+            const newX = Math.random() * (window.innerWidth - 80);
+            const newY = Math.random() * (window.innerHeight - 40);
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+        });
     </script>
 </body>
 </html>
