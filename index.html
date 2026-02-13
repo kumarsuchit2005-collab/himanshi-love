@@ -1,154 +1,175 @@
-<!DOCTYPE html>
+            
+   <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Himanshi ❤️</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffdeeb;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Himanshi ❤️</title>
 
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 85%;
-            z-index: 10;
-        }
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    text-align: center;
+}
 
-        .gif-img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-width: 400px;
+    width: 85%;
+    position: relative;
+}
 
-        h1 { color: #d63384; font-size: 1.7rem; margin-bottom: 10px; }
-        p { color: #555; line-height: 1.5; font-size: 1rem; }
-        
-        .btn-container {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            position: relative; /* Keeps buttons contained initially */
-        }
+.gif-img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
 
-        button {
-            padding: 12px 28px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+h1 { color: #d63384; font-size: 1.6rem; }
+p { color: #555; }
 
-        #yesBtn { background-color: #ff4d6d; color: white; }
+.btn-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 
-        #noBtn { 
-            background-color: #f0f0f0; 
-            color: #d63384; 
-            transition: 0.1s;
-        }
+button {
+    padding: 12px 28px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-        .hidden { display: none; }
-        .fade-in { animation: fadeIn 0.6s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+#yesBtn {
+    background-color: #ff4d6d;
+    color: white;
+}
 
-        .reasons-list { text-align: left; display: inline-block; color: #d63384; margin: 15px 0; font-weight: bold; }
-        .reasons-list div { margin-bottom: 10px; border-bottom: 1px solid #ffeef4; padding-bottom: 5px; }
-    </style>
+#noBtn {
+    background-color: #f0f0f0;
+    color: #d63384;
+    position: relative;
+    transition: 0.2s;
+}
+
+.hidden { display: none; }
+
+.fade-in { animation: fadeIn 0.6s ease-in; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.reasons-list {
+    text-align: left;
+    display: inline-block;
+    color: #d63384;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.reasons-list div {
+    margin-bottom: 8px;
+}
+</style>
 </head>
+
 <body onclick="playMusic()">
 
-    <audio id="valentineMusic" loop>
-        <source src="song.mp3" type="audio/mpeg">
-    </audio>
+<audio id="valentineMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
 
-    <div id="screen1" class="container">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW1mY2tqbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v467vEPr3X08V11452/giphy.gif" class="gif-img" alt="Milk Mocha">
-        <h1>Will you be my Valentine, Himanshi?</h1>
-        <p>Think carefully... 😉</p>
-        <div class="btn-container">
-            <button id="yesBtn" onclick="nextScreen(2)">Yes 🌹</button>
-            <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No 🤨</button>
-        </div>
+<!-- SCREEN 1 -->
+<div id="screen1" class="container">
+    <img src="https://media.tenor.com/w4K-8nF3V5YAAAAi/milk-and-mocha-love.gif" class="gif-img">
+    <h1>Will you be my Valentine, Himanshi? 💖</h1>
+    <p>Think carefully... 😏</p>
+    <div class="btn-container">
+        <button id="yesBtn" onclick="nextScreen(2)">Yes 🌹</button>
+        <button id="noBtn">No 😜</button>
     </div>
+</div>
 
-    <div id="screen2" class="container hidden fade-in">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmN6eG1qbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/T86lxKucLz3R8FmKqS/giphy.gif" class="gif-img">
-        <h1>I knew you'd say YES! 😍</h1>
-        <p>You don't even realize how special you are to me, Himanshi.</p>
-        <p>My world feels warmer and happier because of you ❤️</p>
-        <button id="yesBtn" onclick="nextScreen(3)">Next ➡️</button>
+<!-- SCREEN 2 -->
+<div id="screen2" class="container hidden fade-in">
+    <img src="https://media.tenor.com/97yX9YpIDY4AAAAi/milk-and-mocha.gif" class="gif-img">
+    <h1>I knew you'd say YES! 😍</h1>
+    <p>You are the most special person in my life, Himanshi.</p>
+    <button id="yesBtn" onclick="nextScreen(3)">Next ➡️</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div id="screen3" class="container hidden fade-in">
+    <h1>Reasons Why Suchit Loves You 💕</h1>
+    <div class="reasons-list">
+        <div>💖 Your beautiful smile</div>
+        <div>🌸 Your kindness & care</div>
+        <div>💑 Our magical 1st Feb proposal</div>
+        <div>🏡 You're my safe place</div>
     </div>
+    <button id="yesBtn" onclick="nextScreen(4)">One Hug? 🤗</button>
+</div>
 
-    <div id="screen3" class="container hidden fade-in">
-        <h1>Reasons Why Suchit Loves You 💕</h1>
-        <div class="reasons-list">
-            <div>💖 Your beautiful smile</div>
-            <div>🌸 Your kindness and care</div>
-            <div>👨‍❤️‍👨 Our magical 1st Feb proposal</div>
-            <div>🏡 You're my safe place</div>
-            <div>🪄 You make life magical</div>
-        </div>
-        <br>
-        <button id="yesBtn" onclick="nextScreen(4)">One Hug? 🤗</button>
-    </div>
+<!-- SCREEN 4 -->
+<div id="screen4" class="container hidden fade-in">
+    <img src="https://media.tenor.com/Z_S-uX9k078AAAAi/milk-and-mocha.gif" class="gif-img">
+    <h1>Happy Valentine's Day 💐</h1>
+    <p>You're my today, tomorrow & forever.</p>
+    <p><b>I Love You Always ❤️</b></p>
+    <p>– Suchit</p>
+</div>
 
-    <div id="screen4" class="container hidden fade-in">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo0cXh6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/c70XkG0O3v00DxyS8v/giphy.gif" class="gif-img">
-        <h1>My Valentine Promise 💍</h1>
-        <p>I promise to care for you, make you smile, and love you more with every heartbeat, Himanshi.</p>
-        <button id="yesBtn" onclick="nextScreen(5)">Final Surprise 🎁</button>
-    </div>
+<script>
+function playMusic() {
+    var audio = document.getElementById("valentineMusic");
+    audio.play().catch(function(e){});
+}
 
-    <div id="screen5" class="container hidden fade-in">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/MDJ9iMTCG7ItmwTYW2/giphy.gif" class="gif-img">
-        <h1>Happy Valentine's Day! 💐</h1>
-        <p>You're my today, tomorrow, and always since 1st February.</p>
-        <p><b>I Love You Forever!</b></p>
-        <p>- Suchit</p>
-    </div>
+function nextScreen(num) {
+    playMusic();
+    document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
+    document.getElementById('screen' + num).classList.remove('hidden');
+}
 
-    <script>
-        function playMusic() {
-            var audio = document.getElementById("valentineMusic");
-            audio.play().catch(function(e) {});
-        }
+const noBtn = document.getElementById("noBtn");
 
-        function nextScreen(num) {
-            playMusic();
-            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
-            document.getElementById('screen' + num).classList.remove('hidden');
-            if(num > 1) {
-                document.getElementById('noBtn').style.display = 'none';
-            }
-        }
+function moveNoButton() {
+    noBtn.style.position = "fixed";
 
-        function moveNoButton() {
-            const noBtn = document.getElementById('noBtn');
-            // Change position to absolute so it can fly out of the container
-            noBtn.style.position = 'absolute';
-            
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            
-            noBtn.style.left = x + 'px';
-            noBtn.style.top = y + 'px';
-        }
-    </script>
+    const padding = 20;
+    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    moveNoButton();
+});
+</script>
+
 </body>
-</html>
+</html>         
