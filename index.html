@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Himanshi ❤️</title>
     <style>
-        /* Background and Animation */
         body {
             display: flex;
             justify-content: center;
@@ -27,23 +26,24 @@
         .container {
             background: white;
             padding: 30px;
-            border-radius: 20px;
+            border-radius: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             max-width: 400px;
             width: 85%;
             z-index: 10;
         }
 
-        .couple-photo {
+        /* GIF Styling */
+        .gif-img {
             width: 100%;
-            max-height: 250px;
-            object-fit: cover;
+            max-width: 250px;
+            height: auto;
             border-radius: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         h1 { color: #d63384; font-size: 1.6rem; margin-bottom: 10px; }
-        p { color: #555; line-height: 1.4; }
+        p { color: #555; line-height: 1.5; }
         
         .btn-container {
             margin-top: 20px;
@@ -53,8 +53,8 @@
         }
 
         button {
-            padding: 12px 25px;
-            font-size: 1rem;
+            padding: 12px 28px;
+            font-size: 1.1rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -62,20 +62,20 @@
             transition: 0.2s;
         }
 
-        #yesBtn { background-color: #ff4d6d; color: white; }
+        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4); }
 
-        /* The Jumping No Button Logic */
+        /* The Teleporting No Button */
         #noBtn { 
             background-color: #f0f0f0; 
             color: #d63384; 
             position: absolute; 
-            transition: 0.1s ease;
-            z-index: 100;
+            transition: all 0.1s ease;
+            z-index: 1000;
         }
 
         .hidden { display: none; }
         .fade-in { animation: fadeIn 0.8s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
         .reasons {
             text-align: left;
@@ -84,6 +84,7 @@
             margin: 15px 0;
             font-weight: bold;
         }
+        .reasons div { margin-bottom: 8px; }
     </style>
 </head>
 <body onclick="playMusic()">
@@ -93,24 +94,25 @@
     </audio>
 
     <div id="screen1" class="container">
-        <img src="photo1.jpg" class="couple-photo" alt="Himanshi">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW1mY2tqbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v467vEPr3X08V11452/giphy.gif" class="gif-img" alt="Cute Bear">
         <h1>Himanshi, will you be my Valentine?</h1>
         <p>Suchit is waiting for your answer... 😉</p>
         <div class="btn-container">
-            <button id="yesBtn" onclick="nextScreen(2)">Yes 💖</button>
-            <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No 🤨</button>
+            <button id="yesBtn" onclick="nextScreen(2)">YES! 💖</button>
+            <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">NO 🤨</button>
         </div>
     </div>
 
     <div id="screen2" class="container hidden fade-in">
-        <img src="photo2.jpg" class="couple-photo" alt="Yay!">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmN6eG1qbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/T86lxKucLz3R8FmKqS/giphy.gif" class="gif-img" alt="Happy Cat">
         <h1>I knew you'd say YES! 😍</h1>
-        <p>Ever since our proposal on <b>1st February</b>, my life has been a dream. You don't realize how special you are to me, Himanshi.</p>
-        <button id="yesBtn" onclick="nextScreen(3)">Next</button>
+        <p>Ever since our proposal on <b>1st February</b>, my life has been a dream. You are my everything, Himanshi.</p>
+        <button id="yesBtn" onclick="nextScreen(3)">Why I love you?</button>
     </div>
 
     <div id="screen3" class="container hidden fade-in">
-        <h1>Reasons Why Suchit Loves You 💕</h1>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmN6eG1qbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L4lvBps67d02l87K56/giphy.gif" class="gif-img" alt="Love">
+        <h1>For My Himanshi 💕</h1>
         <div class="reasons">
             <div>✨ Your beautiful smile</div>
             <div>🌸 Your kindness and care</div>
@@ -119,39 +121,35 @@
             <div>🪄 You make life magical</div>
         </div>
         <br>
-        <button id="yesBtn" onclick="nextScreen(4)">One Hug? 🤗</button>
+        <button id="yesBtn" onclick="nextScreen(4)">Final Surprise 🎁</button>
     </div>
 
     <div id="screen4" class="container hidden fade-in">
-        <h1>Happy Valentine's Day, Himanshi! 💐</h1>
-        <p>You're my today, tomorrow, and always since 1st February.</p>
-        <div style="font-size: 80px; margin: 15px 0;">💖</div>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmN6eG1qbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/MDJ9iMTCG7ItmwTYW2/giphy.gif" class="gif-img" alt="Hug">
+        <h1>Happy Valentine's Day! 💐</h1>
+        <p>Himanshi, you're my today, tomorrow, and always.</p>
+        <div style="font-size: 80px; margin: 10px 0;">💖</div>
         <p><b>I Love You Forever!</b></p>
-        <p>Yours truly,<br><b>Suchit</b></p>
+        <p>- Your Suchit</p>
     </div>
 
     <script>
-        // Start music on first click or when "Yes" is clicked
         function playMusic() {
             var audio = document.getElementById("valentineMusic");
-            audio.play().catch(function(error) {
-                // Autoplay block handling
-            });
+            audio.play().catch(function(error) { });
         }
 
         function nextScreen(screenNum) {
             playMusic();
             document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
             document.getElementById('screen' + screenNum).classList.remove('hidden');
+            document.getElementById('noBtn').style.display = 'none';
         }
 
-        // Makes the "No" button jump away
         function moveNoButton() {
             const noBtn = document.getElementById('noBtn');
-            // Calculates random position within the screen boundaries
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
         }
