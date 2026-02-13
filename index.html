@@ -1,197 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Himanshi ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Himanshi ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffdeeb;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
 
-<style>
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    background: linear-gradient(-45deg,#ff758c,#ff7eb3,#ff4d6d,#ff99ac);
-    background-size: 400% 400%;
-    animation: gradientBG 8s ease infinite;
-}
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 85%;
+            z-index: 10;
+            position: relative;
+        }
 
-@keyframes gradientBG {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
-}
+        .gif-img {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
 
-.container {
-    background: white;
-    padding: 30px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    max-width: 400px;
-    width: 85%;
-    text-align: center;
-    position: relative;
-    animation: fadeIn 0.7s ease-in;
-}
+        h1 { color: #d63384; font-size: 1.5rem; margin-bottom: 10px; }
+        p { color: #555; line-height: 1.5; font-size: 1rem; }
+        
+        .btn-container {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 50px;
+        }
 
-.hidden { display:none; }
+        button {
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
 
-@keyframes fadeIn {
-    from {opacity:0; transform:scale(0.9);}
-    to {opacity:1; transform:scale(1);}
-}
+        #yesBtn { background-color: #ff4d6d; color: white; position: relative; z-index: 10; }
 
-h1 { color:#d63384; }
-p { color:#555; }
+        /* Teleporting No Button */
+        #noBtn { 
+            background-color: #f0f0f0; 
+            color: #d63384; 
+            position: relative; 
+            transition: all 0.15s ease;
+            z-index: 1000;
+        }
 
-.btn-container {
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-}
+        .hidden { display: none; }
+        .fade-in { animation: fadeIn 0.6s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
-button {
-    padding:12px 28px;
-    border:none;
-    border-radius:50px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-#yesBtn {
-    background:#ff4d6d;
-    color:white;
-}
-
-#noBtn {
-    background:#eee;
-    color:#d63384;
-    position:relative;
-}
-
-.reasons-list {
-    text-align:left;
-    display:inline-block;
-    color:#d63384;
-    font-weight:bold;
-}
-
-.heart {
-    position: fixed;
-    color: red;
-    animation: fall linear infinite;
-    font-size: 20px;
-}
-
-@keyframes fall {
-    0% { transform: translateY(-10vh); opacity:1; }
-    100% { transform: translateY(110vh); opacity:0; }
-}
-
-.confetti {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: red;
-    animation: confettiFall 3s linear forwards;
-}
-
-@keyframes confettiFall {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(100vh); }
-}
-</style>
+        .reasons-list { text-align: left; display: inline-block; color: #d63384; margin: 15px 0; font-weight: bold; }
+        .reasons-list div { margin-bottom: 10px; border-bottom: 1px solid #ffeef4; padding-bottom: 5px; }
+    </style>
 </head>
-
 <body onclick="playMusic()">
 
-<audio id="valentineMusic" loop>
-<source src="song.mp3" type="audio/mpeg">
-</audio>
+    <audio id="valentineMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
 
-<div id="screen1" class="container">
-    <h1>Will you be my Valentine, Himanshi? 💖</h1>
-    <p>You are my happiness, my forever, my everything.</p>
-    <div class="btn-container">
-        <button id="yesBtn" onclick="nextScreen(2)">Yes 🌹</button>
-        <button id="noBtn">No 😜</button>
+    <div id="screen1" class="container">
+        <img src="https://media.tenor.com/97yX9YpIDY4AAAAi/milk-and-mocha.gif" class="gif-img">
+        <h1>💖 Will you be my Valentine, Himanshi? 💖</h1>
+        <p>🌸 You are my happiness, my peace, my everything 🌸</p>
+        <div style="font-size:35px; margin:15px 0;">💞💍💞</div>
+        <div class="btn-container">
+            <button id="yesBtn" onclick="nextScreen(2)">Yes 🌹</button>
+            <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No 😜</button>
+        </div>
     </div>
-</div>
 
-<div id="screen2" class="container hidden">
-    <h1>I Knew It 😍</h1>
-    <p>You make my world brighter every day.</p>
-    <button id="yesBtn" onclick="nextScreen(3)">Next ➡</button>
-</div>
-
-<div id="screen3" class="container hidden">
-    <h1>Why I Love You 💕</h1>
-    <div class="reasons-list">
-        <div>💖 Your Smile</div>
-        <div>🌸 Your Kind Heart</div>
-        <div>💑 Our 1st Feb Proposal</div>
-        <div>🏡 You’re My Safe Place</div>
+    <div id="screen2" class="container hidden fade-in">
+        <img src="https://media.tenor.com/S6pM7D_pU5QAAAAi/cat-love.gif" class="gif-img">
+        <h1>😍 I Knew You'd Say YES 😍</h1>
+        <div style="font-size:35px; margin:15px 0;">🥰💖🥰</div>
+        <p>You make my world brighter every single day ✨<br>Your smile is my favorite view 🌅</p>
+        <button id="yesBtn" onclick="nextScreen(3)">Next ➡ 💕</button>
     </div>
-    <br><br>
-    <button id="yesBtn" onclick="nextScreen(4)">Final Surprise 🎁</button>
-</div>
 
-<div id="screen4" class="container hidden">
-    <h1>Happy Valentine's Day 💐</h1>
-    <p>Himanshi ❤️ Suchit</p>
-    <p><b>Forever & Always</b></p>
-</div>
+    <div id="screen3" class="container hidden fade-in">
+        <h1>💕 Why Suchit Loves You 💕</h1>
+        <div style="font-size:35px; margin:15px 0;">🐻‍❄️💞🐻</div>
+        <div class="reasons-list">
+            <div>💖 Your beautiful smile</div>
+            <div>🌸 Your kind heart</div>
+            <div>💑 Our magical 1st Feb proposal</div>
+            <div>🏡 You are my safe place</div>
+        </div>
+        <hr style="margin:20px 0; border:1px solid #ffd6e0;">
+        <p style="color:#d63384; font-weight:bold;">😔 When you're not around...</p>
+        <p style="color:#555;">Your absence hurts in a way I can't explain... Your heart misses you deeply ❤️‍V</p>
+        <button id="yesBtn" onclick="nextScreen(4)">My Promise 💌</button>
+    </div>
 
-<script>
-function playMusic(){
-    document.getElementById("valentineMusic").play().catch(()=>{});
-}
+    <div id="screen4" class="container hidden fade-in">
+        <img src="https://media.tenor.com/Z_S-uX9k078AAAAi/milk-and-mocha.gif" class="gif-img">
+        <h1>💌 My Valentine Promise 💌</h1>
+        <div style="font-size:40px; margin:15px 0;">💞💍💖</div>
+        <p style="font-size:18px; color:#d63384; font-weight:bold;">I promise to care for you 🤍</p>
+        <p style="font-size:18px; color:#ff4d6d; font-weight:bold;">To make you smile even on hard days 😊</p>
+        <p style="font-size:18px; color:#d63384; font-weight:bold;">And to love you more with every heartbeat ❤️</p>
+        <button id="yesBtn" onclick="nextScreen(5)">Final Surprise 🎁</button>
+    </div>
 
-function nextScreen(num){
-    document.querySelectorAll('.container').forEach(c=>c.classList.add('hidden'));
-    document.getElementById("screen"+num).classList.remove('hidden');
-    if(num==2){ launchConfetti(); }
-}
+    <div id="screen5" class="container hidden fade-in">
+        <img src="https://media.tenor.com/MDJ9iMTCG7ItmwTYW2/giphy.gif" class="gif-img">
+        <h1>💐 Happy Valentine's Day 💐</h1>
+        <div style="font-size:30px; margin:15px 0;">❤️ Himanshi & Suchit ❤️</div>
+        <p>You are my today,<br>my tomorrow,<br>and my forever 💞</p>
+        <p style="font-weight:bold; color:#d63384; font-size: 1.2rem;">I Love You Always ❤️</p>
+    </div>
 
-const noBtn=document.getElementById("noBtn");
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("valentineMusic");
+            audio.play().catch(function(e) {});
+        }
 
-function moveNo(){
-    noBtn.style.position="fixed";
-    const x=Math.random()*(window.innerWidth-100);
-    const y=Math.random()*(window.innerHeight-50);
-    noBtn.style.left=x+"px";
-    noBtn.style.top=y+"px";
-}
+        function nextScreen(num) {
+            playMusic();
+            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
+            document.getElementById('screen' + num).classList.remove('hidden');
+            
+            // Remove the No button after first screen
+            if(num > 1) {
+                const no = document.getElementById('noBtn');
+                if(no) no.remove();
+            }
+        }
 
-noBtn.addEventListener("mouseover",moveNo);
-noBtn.addEventListener("touchstart",(e)=>{e.preventDefault();moveNo();});
-
-function createHearts(){
-    const heart=document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(Math.random()*3+2)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),5000);
-}
-setInterval(createHearts,300);
-
-function launchConfetti(){
-    for(let i=0;i<80;i++){
-        const conf=document.createElement("div");
-        conf.classList.add("confetti");
-        conf.style.left=Math.random()*100+"vw";
-        conf.style.backgroundColor=`hsl(${Math.random()*360},100%,50%)`;
-        document.body.appendChild(conf);
-        setTimeout(()=>conf.remove(),3000);
-    }
-}
-</script>
-
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            noBtn.style.position = 'absolute'; 
+            
+            // Random movement logic
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+    </script>
 </body>
 </html>
