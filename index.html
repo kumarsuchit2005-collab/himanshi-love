@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Himanshi ❤️</title>
 
 <style>
 body{
   margin:0;
-  font-family: Arial, sans-serif;
+  font-family:Arial;
   background:black;
   color:white;
-  overflow:hidden;
   text-align:center;
+  overflow:hidden;
 }
 
 .page{
   display:none;
   height:100vh;
-  padding:30px;
   justify-content:center;
   align-items:center;
   flex-direction:column;
@@ -27,19 +27,10 @@ body{
   display:flex;
 }
 
-h1{
-  font-size:28px;
-}
-
-p{
-  font-size:18px;
-  margin-top:15px;
-}
-
 button{
   padding:12px 25px;
   border:none;
-  border-radius:30px;
+  border-radius:25px;
   font-size:18px;
   margin:15px;
   cursor:pointer;
@@ -55,83 +46,42 @@ button{
   color:white;
   position:absolute;
 }
-
-.final-text{
-  font-size:30px;
-  animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow{
-  from{ text-shadow:0 0 10px pink; }
-  to{ text-shadow:0 0 20px red; }
-}
-
-.fade{
-  animation: fadeIn 1.5s;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
-}
 </style>
 </head>
 
 <body>
 
-<audio autoplay loop>
-  <source src="arz.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Page 1 -->
-<div class="page active fade" id="page1">
+<div class="page active" id="page1">
   <h1>Himanshi ❤️</h1>
-  <p>There is something I want to ask you...</p>
-  <button onclick="nextPage(2)">Next ➜</button>
+  <p>I want to ask you something...</p>
+  <button onclick="nextPage()">Next ➜</button>
 </div>
 
-<!-- Page 2 -->
-<div class="page fade" id="page2">
-  <h1>Since you came into my life...</h1>
-  <p>Everything feels more beautiful, peaceful and special 💖<br><br>
-  – Suchit</p>
-  <button onclick="nextPage(3)">Next ➜</button>
-</div>
-
-<!-- Page 3 -->
-<div class="page fade" id="page3">
+<div class="page" id="page2">
   <h1>Will you stay forever with me? 💍</h1>
   <button class="yes" onclick="showFinal()">YES ❤️</button>
   <button class="no" id="noBtn">NO 😜</button>
 </div>
 
-<!-- Final Page -->
 <div class="page" id="final">
-  <div class="final-text">
-    💖 Himanshi & Suchit Forever 💖<br><br>
-    I Love You So Much ❤️
-  </div>
+  <h1>💖 Himanshi & Suchit Forever 💖</h1>
 </div>
 
 <script>
-
-function nextPage(num){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  document.getElementById("page"+num).classList.add("active");
+function nextPage(){
+  document.getElementById("page1").classList.remove("active");
+  document.getElementById("page2").classList.add("active");
 }
 
 function showFinal(){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("page2").classList.remove("active");
   document.getElementById("final").classList.add("active");
 }
 
-const noBtn=document.getElementById("noBtn");
-
-noBtn.addEventListener("mouseover",function(){
-  noBtn.style.left=Math.random()*80+"vw";
-  noBtn.style.top=Math.random()*80+"vh";
+document.getElementById("noBtn").addEventListener("mouseover",function(){
+  this.style.left=Math.random()*80+"vw";
+  this.style.top=Math.random()*80+"vh";
 });
-
 </script>
 
 </body>
