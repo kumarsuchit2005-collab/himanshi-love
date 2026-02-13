@@ -1,88 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Himanshi ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        /* Pulsing Background from the video */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: radial-gradient(circle, #ffdeeb 0%, #f8bbd0 100%);
+            animation: pulse 3s infinite alternate;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
 
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:black;
-  color:white;
-  text-align:center;
-  overflow:hidden;
-}
+        @keyframes pulse {
+            from { background-color: #ffdeeb; }
+            to { background-color: #fce4ec; }
+        }
 
-.page{
-  display:none;
-  height:100vh;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-}
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
 
-.active{
-  display:flex;
-}
+        h1 { color: #d63384; font-size: 1.8rem; margin-bottom: 10px; }
+        p { color: #555; line-height: 1.5; margin-bottom: 20px; }
 
-button{
-  padding:12px 25px;
-  border:none;
-  border-radius:25px;
-  font-size:18px;
-  margin:15px;
-  cursor:pointer;
-}
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            transition: all 0.2s ease;
+        }
 
-.yes{
-  background:white;
-  color:black;
-}
+        button {
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
 
-.no{
-  background:red;
-  color:white;
-  position:absolute;
-}
-</style>
+        #yesBtn { background-color: #ff4d6d; color: white; }
+        #noBtn { background-color: #f0f0f0; color: #d63384; border: 1px solid #d63384; }
+
+        .hidden { display: none; }
+        
+        .gif-placeholder { 
+            font-size: 60px; 
+            margin-bottom: 20px; 
+            display: block;
+        }
+
+        /* Reasons styling */
+        .reasons-list {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 250px;
+            color: #d63384;
+            font-weight: 500;
+        }
+        .reasons-list div { margin-bottom: 10px; }
+
+        .fade-in { animation: fadeIn 0.8s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
-
 <body>
 
-<div class="page active" id="page1">
-  <h1>Himanshi ❤️</h1>
-  <p>I want to ask you something...</p>
-  <button onclick="nextPage()">Next ➜</button>
-</div>
+    <div id="screen1" class="container">
+        <div class="gif-placeholder">🐻❤️🐼</div> <h1>Will you be my Valentine?</h1>
+        <p>Think carefully... 😉</p>
+        <div class="btn-container" id="mainButtons">
+            <button id="yesBtn" onclick="nextScreen(2)">Yes 💖</button>
+            <button id="noBtn" onmouseover="swapButtons()">No 🤨</button>
+        </div>
+    </div>
 
-<div class="page" id="page2">
-  <h1>Will you stay forever with me? 💍</h1>
-  <button class="yes" onclick="showFinal()">YES ❤️</button>
-  <button class="no" id="noBtn">NO 😜</button>
-</div>
+    <div id="screen2" class="container hidden fade-in">
+        <div class="gif-placeholder">🐱✨</div> <h1>I knew you'd say YES! 😍</h1>
+        <p>You don't even realize how special you are to me.<br><br>My world feels warmer, brighter, and happier because of you ❤️</p>
+        <button id="yesBtn" onclick="nextScreen(3)">Next</button>
+    </div>
 
-<div class="page" id="final">
-  <h1>💖 Himanshi & Suchit Forever 💖</h1>
-</div>
+    <div id="screen3" class="container hidden fade-in">
+        <h1>Reasons Why I Love You 💕</h1>
+        <div class="reasons-list">
+            <div>💖 Your beautiful smile</div>
+            <div>🌸 Your kindness and care</div>
+            <div>🤝 You understand me deeply</div>
+            <div>🏡 You're my safe place</div>
+            <div>🪄 You make life magical</div>
+        </div>
+        <button id="yesBtn" onclick="nextScreen(4)">One Hug? 🤗</button>
+    </div>
 
-<script>
-function nextPage(){
-  document.getElementById("page1").classList.remove("active");
-  document.getElementById("page2").classList.add("active");
-}
+    <div id="screen4" class="container hidden fade-in">
+        <div class="gif-placeholder">👩‍❤️‍👨</div>
+        <h1>My Valentine Promise 💍</h1>
+        <p>I promise to care for you, to make you smile even on hard days, and to love you more with every heartbeat.</p>
+        <button id="yesBtn" onclick="nextScreen(5)">Final Surprise 🎁</button>
+    </div>
 
-function showFinal(){
-  document.getElementById("page2").classList.remove("active");
-  document.getElementById("final").classList.add("active");
-}
+    <div id="screen5" class="container hidden fade-in">
+        <h1>Happy Valentine's Day! 💐</h1>
+        <p>You're my today, tomorrow, and always.</p>
+        <div style="font-size: 80px; margin: 20px 0;">💖</div>
+        <p><b>I Love You!</b></p>
+    </div>
 
-document.getElementById("noBtn").addEventListener("mouseover",function(){
-  this.style.left=Math.random()*80+"vw";
-  this.style.top=Math.random()*80+"vh";
-});
-</script>
+    <script>
+        function nextScreen(screenNum) {
+            document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
+            document.getElementById('screen' + screenNum).classList.remove('hidden');
+        }
 
+        // Exact Video Logic: Swapping "Yes" and "No" button positions
+        function swapButtons() {
+            const container = document.getElementById('mainButtons');
+            if (container.style.flexDirection === 'row-reverse') {
+                container.style.flexDirection = 'row';
+            } else {
+                container.style.flexDirection = 'row-reverse';
+            }
+        }
+    </script>
 </body>
 </html>
