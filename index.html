@@ -11,22 +11,16 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: radial-gradient(circle, #ffdeeb 0%, #f8bbd0 100%);
-            animation: pulse 3s infinite alternate;
+            background-color: #ffdeeb;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
             text-align: center;
         }
 
-        @keyframes pulse {
-            from { background-color: #ffdeeb; }
-            to { background-color: #fce4ec; }
-        }
-
         .container {
             background: white;
             padding: 30px;
-            border-radius: 30px;
+            border-radius: 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             max-width: 400px;
             width: 85%;
@@ -41,16 +35,15 @@
             margin-bottom: 20px;
         }
 
-        h1 { color: #d63384; font-size: 1.6rem; margin-bottom: 10px; }
-        p { color: #555; line-height: 1.5; }
+        h1 { color: #d63384; font-size: 1.7rem; margin-bottom: 10px; }
+        p { color: #555; line-height: 1.5; font-size: 1rem; }
         
         .btn-container {
-            margin-top: 20px;
+            margin-top: 25px;
             display: flex;
             justify-content: center;
             gap: 20px;
-            position: relative;
-            height: 60px;
+            position: relative; /* Keeps buttons contained initially */
         }
 
         button {
@@ -62,22 +55,20 @@
             font-weight: bold;
         }
 
-        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4); }
+        #yesBtn { background-color: #ff4d6d; color: white; }
 
         #noBtn { 
             background-color: #f0f0f0; 
             color: #d63384; 
-            position: absolute; 
-            left: 150px; /* Initial position */
-            transition: all 0.1s ease-out;
-            z-index: 1000;
+            transition: 0.1s;
         }
 
         .hidden { display: none; }
-        .fade-in { animation: fadeIn 0.8s ease-in; }
+        .fade-in { animation: fadeIn 0.6s ease-in; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
-        .reasons { text-align: left; display: inline-block; color: #d63384; margin: 15px 0; font-weight: bold; }
+        .reasons-list { text-align: left; display: inline-block; color: #d63384; margin: 15px 0; font-weight: bold; }
+        .reasons-list div { margin-bottom: 10px; border-bottom: 1px solid #ffeef4; padding-bottom: 5px; }
     </style>
 </head>
 <body onclick="playMusic()">
@@ -87,40 +78,49 @@
     </audio>
 
     <div id="screen1" class="container">
-        <img src="https://media.giphy.com/media/c70XkG0O3v00DxyS8v/giphy.gif" class="gif-img" alt="Bears">
-        <h1>Himanshi, will you be my Valentine?</h1>
-        <p>Suchit is waiting for your answer... 😉</p>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW1mY2tqbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v467vEPr3X08V11452/giphy.gif" class="gif-img" alt="Milk Mocha">
+        <h1>Will you be my Valentine, Himanshi?</h1>
+        <p>Think carefully... 😉</p>
         <div class="btn-container">
-            <button id="yesBtn" onclick="nextScreen(2)">YES! 💖</button>
-            <button id="noBtn" id="noBtn">NO 🤨</button>
+            <button id="yesBtn" onclick="nextScreen(2)">Yes 🌹</button>
+            <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No 🤨</button>
         </div>
     </div>
 
     <div id="screen2" class="container hidden fade-in">
-        <img src="https://media.giphy.com/media/T86lxKucLz3R8FmKqS/giphy.gif" class="gif-img">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmN6eG1qbm10eG8wbXp6bXF6bXF6bXF6bXF6bXF6bXF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/T86lxKucLz3R8FmKqS/giphy.gif" class="gif-img">
         <h1>I knew you'd say YES! 😍</h1>
-        <p>Ever since our proposal on <b>1st February</b>, my life has been a dream.</p>
-        <button id="yesBtn" onclick="nextScreen(3)">Why I love you?</button>
+        <p>You don't even realize how special you are to me, Himanshi.</p>
+        <p>My world feels warmer and happier because of you ❤️</p>
+        <button id="yesBtn" onclick="nextScreen(3)">Next ➡️</button>
     </div>
 
     <div id="screen3" class="container hidden fade-in">
-        <img src="https://media.giphy.com/media/L4lvBps67d02l87K56/giphy.gif" class="gif-img">
-        <h1>For My Himanshi 💕</h1>
-        <div class="reasons">
-            <div>✨ Your beautiful smile</div>
+        <h1>Reasons Why Suchit Loves You 💕</h1>
+        <div class="reasons-list">
+            <div>💖 Your beautiful smile</div>
             <div>🌸 Your kindness and care</div>
-            <div>👩‍❤️‍👨 Our magical 1st Feb</div>
+            <div>👨‍❤️‍👨 Our magical 1st Feb proposal</div>
             <div>🏡 You're my safe place</div>
-        </div><br>
-        <button id="yesBtn" onclick="nextScreen(4)">Final Surprise 🎁</button>
+            <div>🪄 You make life magical</div>
+        </div>
+        <br>
+        <button id="yesBtn" onclick="nextScreen(4)">One Hug? 🤗</button>
     </div>
 
     <div id="screen4" class="container hidden fade-in">
-        <img src="https://media.giphy.com/media/MDJ9iMTCG7ItmwTYW2/giphy.gif" class="gif-img">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo0cXh6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/c70XkG0O3v00DxyS8v/giphy.gif" class="gif-img">
+        <h1>My Valentine Promise 💍</h1>
+        <p>I promise to care for you, make you smile, and love you more with every heartbeat, Himanshi.</p>
+        <button id="yesBtn" onclick="nextScreen(5)">Final Surprise 🎁</button>
+    </div>
+
+    <div id="screen5" class="container hidden fade-in">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/MDJ9iMTCG7ItmwTYW2/giphy.gif" class="gif-img">
         <h1>Happy Valentine's Day! 💐</h1>
-        <div style="font-size: 80px;">💖</div>
-        <p><b>I Love You Forever, Himanshi!</b></p>
-        <p>- Your Suchit</p>
+        <p>You're my today, tomorrow, and always since 1st February.</p>
+        <p><b>I Love You Forever!</b></p>
+        <p>- Suchit</p>
     </div>
 
     <script>
@@ -133,35 +133,22 @@
             playMusic();
             document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
             document.getElementById('screen' + num).classList.remove('hidden');
-            if(num > 1) document.getElementById('noBtn').style.display = 'none';
+            if(num > 1) {
+                document.getElementById('noBtn').style.display = 'none';
+            }
         }
 
-        // NO BUTTON RUNNING AWAY LOGIC
-        const noBtn = document.getElementById('noBtn');
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            const buttonRect = noBtn.getBoundingClientRect();
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            // Change position to absolute so it can fly out of the container
+            noBtn.style.position = 'absolute';
             
-            // Calculate distance between mouse and button center
-            const dist = Math.hypot(x - (buttonRect.left + buttonRect.width/2), y - (buttonRect.top + buttonRect.height/2));
-
-            // If mouse is within 100 pixels, move the button
-            if (dist < 100) {
-                const newX = Math.random() * (window.innerWidth - buttonRect.width);
-                const newY = Math.random() * (window.innerHeight - buttonRect.height);
-                noBtn.style.left = newX + 'px';
-                noBtn.style.top = newY + 'px';
-            }
-        });
-
-        // For mobile touch
-        noBtn.addEventListener('touchstart', () => {
-            const newX = Math.random() * (window.innerWidth - 80);
-            const newY = Math.random() * (window.innerHeight - 40);
-            noBtn.style.left = newX + 'px';
-            noBtn.style.top = newY + 'px';
-        });
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
     </script>
 </body>
 </html>
