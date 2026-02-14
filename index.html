@@ -59,12 +59,11 @@
 
         #yesBtn { background-color: #ff4d6d; color: white; position: relative; z-index: 10; }
 
-        /* Teleporting No Button */
         #noBtn { 
             background-color: #f0f0f0; 
             color: #d63384; 
             position: relative; 
-            transition: all 0.15s ease;
+            transition: all 0.1s ease;
             z-index: 1000;
         }
 
@@ -73,7 +72,7 @@
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
         .reasons-list { text-align: left; display: inline-block; color: #d63384; margin: 15px 0; font-weight: bold; }
-        .reasons-list div { margin-bottom: 10px; border-bottom: 1px solid #ffeef4; padding-bottom: 5px; }
+        .reasons-list div { margin-bottom: 8px; border-bottom: 1px solid #ffeef4; padding-bottom: 5px; }
     </style>
 </head>
 <body onclick="playMusic()">
@@ -86,7 +85,6 @@
         <img src="https://media.tenor.com/97yX9YpIDY4AAAAi/milk-and-mocha.gif" class="gif-img">
         <h1>💖 Will you be my Valentine, Himanshi? 💖</h1>
         <p>🌸 You are my happiness, my peace, my everything 🌸</p>
-        <div style="font-size:35px; margin:15px 0;">💞💍💞</div>
         <div class="btn-container">
             <button id="yesBtn" onclick="nextScreen(2)">Yes 🌹</button>
             <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">No 😜</button>
@@ -96,42 +94,47 @@
     <div id="screen2" class="container hidden fade-in">
         <img src="https://media.tenor.com/S6pM7D_pU5QAAAAi/cat-love.gif" class="gif-img">
         <h1>😍 I Knew You'd Say YES 😍</h1>
-        <div style="font-size:35px; margin:15px 0;">🥰💖🥰</div>
-        <p>You make my world brighter every single day ✨<br>Your smile is my favorite view 🌅</p>
-        <button id="yesBtn" onclick="nextScreen(3)">Next ➡ 💕</button>
+        <p>You make my world brighter every single day ✨</p>
+        <button id="yesBtn" onclick="nextScreen(3)">Our Special Date? 🗓️</button>
     </div>
 
     <div id="screen3" class="container hidden fade-in">
-        <h1>💕 Why Suchit Loves You 💕</h1>
-        <div style="font-size:35px; margin:15px 0;">🐻‍❄️💞🐻</div>
-        <div class="reasons-list">
-            <div>💖 Your beautiful smile</div>
-            <div>🌸 Your kind heart</div>
-            <div>💑 Our magical 1st Feb proposal</div>
-            <div>🏡 You are my safe place</div>
-        </div>
-        <hr style="margin:20px 0; border:1px solid #ffd6e0;">
-        <p style="color:#d63384; font-weight:bold;">😔 When you're not around...</p>
-        <p style="color:#555;">Your absence hurts in a way I can't explain... Your heart misses you deeply ❤️‍V</p>
-        <button id="yesBtn" onclick="nextScreen(4)">My Promise 💌</button>
+        <img src="https://media.tenor.com/T86lxKucLz3R8FmKqS/giphy.gif" class="gif-img">
+        <h1>💞 1st February 💞</h1>
+        <p>The day we proposed to each other and started this beautiful journey. One of the best days of my life! 💍</p>
+        <button id="yesBtn" onclick="nextScreen(4)">Why I Love You? 💕</button>
     </div>
 
     <div id="screen4" class="container hidden fade-in">
-        <img src="https://media.tenor.com/Z_S-uX9k078AAAAi/milk-and-mocha.gif" class="gif-img">
-        <h1>💌 My Valentine Promise 💌</h1>
-        <div style="font-size:40px; margin:15px 0;">💞💍💖</div>
-        <p style="font-size:18px; color:#d63384; font-weight:bold;">I promise to care for you 🤍</p>
-        <p style="font-size:18px; color:#ff4d6d; font-weight:bold;">To make you smile even on hard days 😊</p>
-        <p style="font-size:18px; color:#d63384; font-weight:bold;">And to love you more with every heartbeat ❤️</p>
-        <button id="yesBtn" onclick="nextScreen(5)">Final Surprise 🎁</button>
+        <h1>💕 Why Suchit Loves You 💕</h1>
+        <div class="reasons-list">
+            <div>👀 Your hazel eyes are the prettiest</div>
+            <div>💖 Your beautiful smile</div>
+            <div>🌸 Your kind heart</div>
+            <div>🏡 You are my safe place</div>
+        </div>
+        <p style="color:#d63384; font-size: 0.9rem;"><i>"Thodi si matlabi or advance bhi hogyi h"</i> 😂</p>
+        <hr style="margin:10px 0; border:1px solid #ffd6e0;">
+        <p style="color:#555; font-size: 0.9rem;">Your absence hurts... every day without you feels incomplete ❤️‍🩹</p>
+        <button id="yesBtn" onclick="nextScreen(5)">My Promise 💌</button>
     </div>
 
     <div id="screen5" class="container hidden fade-in">
+        <img src="https://media.tenor.com/Z_S-uX9k078AAAAi/milk-and-mocha.gif" class="gif-img">
+        <h1>💌 My Valentine Promise 💌</h1>
+        <p style="color:#ff4d6d; font-weight:bold;">I promise to care for you, make you smile, and love you more with every heartbeat ❤️</p>
+        <button id="yesBtn" onclick="nextScreen(6)">Final Surprise 🎁</button>
+    </div>
+
+    <div id="screen6" class="container hidden fade-in">
         <img src="https://media.tenor.com/MDJ9iMTCG7ItmwTYW2/giphy.gif" class="gif-img">
         <h1>💐 Happy Valentine's Day 💐</h1>
-        <div style="font-size:30px; margin:15px 0;">❤️ Himanshi & Suchit ❤️</div>
-        <p>You are my today,<br>my tomorrow,<br>and my forever 💞</p>
-        <p style="font-weight:bold; color:#d63384; font-size: 1.2rem;">I Love You Always ❤️</p>
+        <div style="font-size:24px; margin:15px 0; color:#d63384;">❤️ Himanshi & Suchit ❤️</div>
+        <p>You are my today, my tomorrow, and my forever 💞</p>
+        <p style="background: #fff0f5; padding: 10px; border-radius: 10px; font-size: 0.9rem; color: #555;">
+            " y korean webseries dekhni band krde moti " 
+        </p>
+        <p style="font-weight:bold; color:#d63384; margin-top: 15px;">I Love You Always ❤️</p>
     </div>
 
     <script>
@@ -144,22 +147,14 @@
             playMusic();
             document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
             document.getElementById('screen' + num).classList.remove('hidden');
-            
-            // Remove the No button after first screen
-            if(num > 1) {
-                const no = document.getElementById('noBtn');
-                if(no) no.remove();
-            }
+            if(num > 1 && document.getElementById('noBtn')) document.getElementById('noBtn').remove();
         }
 
         function moveNoButton() {
             const noBtn = document.getElementById('noBtn');
             noBtn.style.position = 'absolute'; 
-            
-            // Random movement logic
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
         }
